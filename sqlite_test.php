@@ -1,9 +1,25 @@
+<html>
 <?php
 
 // open or create db
 $db = new SQLite3('mydatabase.db');
 
-$myForm = $_SERVER['SERVER_NAME'] . "/linkProcess.php?token=";
+function rootOrFolder()
+{
+    $scriptPath = $_SERVER['SCRIPT_NAME'];
+    $dir = dirname($scriptPath);
+
+    if ($dir === '/' || $dir === '\\') {
+        //echo "El archivo está en la raíz";
+        return "";
+    } else {
+        //echo "El archivo está en una subcarpeta: " . $dir;
+        return $dir;
+    }
+}
+//echo (rootOrFolder());
+$myForm = $_SERVER['SERVER_NAME'] . rootOrFolder() . "/linkProcess.php?token=";
+//die("hasta aqui:" . $myForm);
 
 // create table with new 'form' column
 $db->exec("
@@ -73,9 +89,9 @@ if ($row['count'] == 0) {
     $stmt->bindValue(':formname', 'PGAP.php', SQLITE3_TEXT);
     $stmt->execute();
 
-    echo "Table was empty. Records added.";
+    echo "Table was empty. Records added.\n<br>";
 } else {
-    echo "Table already contains data.";
+    echo "Table 'mytable' already contains data.\n<br>";
 }
 
 // create table for tokens
@@ -96,11 +112,14 @@ $row = $result->fetchArray(SQLITE3_ASSOC);
 
 if ($row['count'] == 0) {
 
-    echo "Table was empty. Records added.";
+    echo "Table was empty. Records added.\n<br>";
 } else {
-    echo "Table already contains data.";
+    echo "Table 'tokens' already contains data.\n<br>";
 }
 
 
 
 ?>
+<br><br>go to <a href="index.html">index</a>
+
+</html>

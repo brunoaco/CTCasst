@@ -48,7 +48,15 @@ try {
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 } catch (Exception $e) {
-    die("Database error: " . $e->getMessage());
+    //die("Database error: " . $e->getMessage());
+
+    // Opcional: registrar el error en un log
+    error_log("Database error: " . $e->getMessage());
+
+    // Redirigir a otro PHP
+    header("Location: sqlite_test.php");
+    exit();
+
 }
 ?>
 <!DOCTYPE html>
@@ -112,12 +120,13 @@ try {
                             <?php
                             $rowCount++;
                         endforeach; ?>
-                        <tr>
+                        <!--<tr>
                             <td>rows:</td>
-                            <td><input type="text" name="maxCount" id="maxCount" value="<?= $rowCount ?>"></td>
-                        </tr>
+                            <td><input type="hidden" name="maxCount" id="maxCount" value="<?= $rowCount ?>"></td>
+                        </tr>-->
                     </tbody>
                 </table>
+                <input type="hidden" name="maxCount" id="maxCount" value="<?= $rowCount ?>">
             </div>
 
             <!-- Buttons -->
