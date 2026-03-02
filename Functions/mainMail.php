@@ -31,11 +31,13 @@ function mainMail($host, $username, $fromName, $password, $patientEmail, $subjec
         $mail->IsHTML(true);       // <=== call IsHTML() after $mail->Body has been set.
 
         $mail->send();//this is where the magic happens
-        echo "Correo enviado correctamente\n";
+        //echo "Correo enviado correctamente\n";
 
-        echo 'email sent' . '<br>';
+        //echo 'email sent' . '<br>';
+        return "email sent";
     } catch (Exception $e) {
-        echo "Error : {$mail->ErrorInfo}";
+        //echo "Error : {$mail->ErrorInfo}";
+        return "email error";
     }
 }
 ?>
