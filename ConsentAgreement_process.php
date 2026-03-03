@@ -333,10 +333,8 @@ try {
     $mail->IsHTML(true);       // <=== call IsHTML() after $mail->Body has been set.
 
     $mail->send();//this is where the magic happens
-    echo "Correo enviado correctamente\n";
-
-    echo 'send email from google email' . '<br>';
+    echo "Email sent.\n<br><br><br><button onclick=\"window.close()\">Close Window</button>";
 } catch (Exception $e) {
-    echo "Error al enviar correo: {$mail->ErrorInfo}";
+    echo "Error : {$mail->ErrorInfo}";
 }
 ?>

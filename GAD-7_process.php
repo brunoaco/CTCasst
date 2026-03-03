@@ -208,7 +208,7 @@ $html_rtrn .=
 
 //echo $emailBody;
 
-echo 'send email from google email' . '<br>';
+//echo 'send email from google email' . '<br>';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -231,13 +231,12 @@ try {
     $mail->setFrom($clinicianEmail, 'Patient');//origin
     $mail->addAddress($clinicianEmail);//destination//$patientEmail
     $mail->Subject = 'Requested GAD-7';
-    //$mail->Body = '<html><body><h3>test</h3></body></html>';
     $mail->Body = $html_rtrn;//$emailBody;
     $mail->IsHTML(true);       // <=== call IsHTML() after $mail->Body has been set.
 
     $mail->send();//this is where the magic happens
-    echo "Correo enviado correctamente";
+    echo "Email sent.\n<br><br><br><button onclick=\"window.close()\">Close Window</button>";
 } catch (Exception $e) {
-    echo "Error al enviar correo: {$mail->ErrorInfo}";
+    echo "Error : {$mail->ErrorInfo}";
 }
 ?>

@@ -1,3 +1,11 @@
+<?php
+/*
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
+//die("hasta aqui");
+*/
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,17 +19,56 @@
 </head>
 
 <body>
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        echo "No POST data received. Use a form to submit data.\n";
+        exit;
+    }
 
+    if (empty($_POST)) {
+        echo "POST is empty.\n";
+        exit;
+    }
+
+    $clinicianEmail = $_POST["clinicianEmail"];
+    if (empty($clinicianEmail)) {
+        echo "clinicianEmail is empty\n";
+    } /*else {
+echo "clinicianEmail has data " . $clinicianEmail . "<br>\n";
+}*/
+
+    $patientEmail = $_POST["patientEmail"];
+    if (empty($patientEmail)) {
+        echo "patientEmail is empty\n";
+    } /*else {
+echo "patientEmail has data " . $patientEmail . "<br>\n";
+}*/
+
+    $assessmentslink = $_POST["assessmentslink"];
+    if (empty($assessmentslink)) {
+        echo "assessmentslink is empty\n";
+    } /*else {
+echo "assessmentslink has data " . $assessmentslink . "<br>\n";
+}*/
+    //die("hasta aqui");
+    ?>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-auto">
                 <h1>Excerpt from SCAT 5</h1>
-                <form>
+                <form action="SCAT5_process.php" method="post" id="myForm">
                     <table class="table table-bordered border border-dark text-center align-middle">
                         <thead class="table-primary">
                             <tr>
-                                <th class="text-start">Síntoma</th>
-                                <th colspan="7">Severidad</th>
+                                <th class="text-start">Symptom
+                                    <input type="hidden" class="form-control" id="clinicianEmail" name="clinicianEmail"
+                                        value="<?= $clinicianEmail ?>" required>
+                                    <input type="hidden" class="form-control" id="patientEmail" name="patientEmail"
+                                        value="<?= $patientEmail ?>" required>
+                                    <input type="hidden" class="form-control" id="assessmentslink"
+                                        name="assessmentslink" value="<?= $assessmentslink ?>" required>
+                                </th>
+                                <th colspan="7">Severity</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -1414,6 +1461,15 @@
                         <div class="form-text">
                             Maximum 200 characters.
                         </div>
+                    </div>
+                    <div class="mt-4 d-flex gap-3">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                        <!-- Cancel: vuelve atrás o a una URL -->
+                        <button type="button" class="btn btn-secondary"
+                            onclick="document.getElementById('myForm').reset()">
+                            Cancel
+                        </button>
                     </div>
                 </form>
             </div>
