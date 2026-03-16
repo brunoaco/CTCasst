@@ -4,40 +4,56 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
 
-function mainMail($host, $username, $fromName, $password, $patientEmail, $subject, $emailBody)
-{
+function mainMail(
+    $host,
+    $username,
+    $fromName,
+    $password,
+    $destinationEmail,
+    $subject,
+    $emailBody
+) {
 
+    if (!filter_var($destinationEmail, FILTER_VALIDATE_EMAIL)) {
+        return "invalid email address";
+    }
 
     $mail = new PHPMailer(true);
 
     try {
-        // Configuración del servidor SMTP de Gmail
+
+        $mail->CharSet = 'UTF-8';
+
         $mail->isSMTP();
-        $mail->Host = $host;//"smtp-mail.outlook.com";//'smtp.gmail.com';
+        $mail->Host = $host;
         $mail->SMTPAuth = true;
-        $mail->Username = $username;//'Assessments@creativetherapyconsultants.ca'//'brunoaco@gmail.com';
-        $mail->Password = $password;//'@7@!Ass3ssm3n7s';//'qomu csty rxve vfsi'; // OJO: NO es tu contraseña normal
+
+        $mail->Username = $username;
+        $mail->Password = $password;
+
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
-        // Datos del email
-        $mail->setFrom($username, $fromName);//'Automatic Assessment Request Service' //origin
-        $mail->addAddress($patientEmail);//destination
-        $mail->Subject = $subject;//'Assessment Request';
-/*
-        $emailBody = str_replace("{{assessmentsList}}", $links, $emailBody);
-*/
+        $mail->Timeout = 30;
+        $mail->SMTPDebug = 0;
+
+        $mail->setFrom($username, $fromName);
+        $mail->addAddress($destinationEmail);
+
+        $mail->Subject = $subject;
         $mail->Body = $emailBody;
-        $mail->IsHTML(true);       // <=== call IsHTML() after $mail->Body has been set.
+        $mail->isHTML(true);
 
-        $mail->send();//this is where the magic happens
-        //echo "Correo enviado correctamente\n";
+        $mail->SMTPKeepAlive = false;
 
-        //echo 'email sent' . '<br>';
+        $mail->send();
+
         return "email sent";
+
     } catch (Exception $e) {
-        //echo "Error : {$mail->ErrorInfo}";
-        return "email error";
+
+        return "email error: " . $mail->ErrorInfo;
+
     }
 }
 ?>

@@ -171,7 +171,12 @@ $html_rtrn = " <!DOCTYPE html> " .
     "       <div>" .
     "           <div>";
 
-if ($lvl_difficult0 == 0) {
+if (
+    $lvl_difficult0 == 0
+    && $lvl_difficult1 == 0
+    && $lvl_difficult2 == 0
+    && $lvl_difficult3 == 0
+) {
     $html_rtrn .= "<input type=\"checkbox\" checked=\"true\">Not difficult at all<br>";
 } else {
     $html_rtrn .= "<input type=\"checkbox\" disabled>Not difficult at all<br>";

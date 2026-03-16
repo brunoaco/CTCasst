@@ -99,6 +99,7 @@ $html_rtrn = "  " .
     " </head> " .
     " <body> " .
     "     <div class=\"container\"> " .
+    "            <label for=\"patientEmail\" class=\"form-label\">Patient Email: " . $patientEmail . "</label>" .
     "         <h1>HIT-6 Headache Impact Test</h1> " .
     "         <!-- Hidden Inputs --> " .
     "         <input type=\"hidden\" name=\"clinicianEmail\" value=\"$clinicianEmail\"> " .
@@ -312,42 +313,75 @@ $html_rtrn = $html_rtrn .
     " </html> ";
 //echo $html_rtrn;
 //die("hasta aqui");
-
+//echo $html_rtrn;
+//die("hasta aqui");
+$emailBody = $html_rtrn;
 //echo $emailBody;
 
-echo 'send email from google email' . '<br>';
+require './Functions/mainMail.php';
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+$config = require './inc/config.php';
+
+$host = $config['host'];
+$username = $config['username'];
+$fromName = $config['fromName'];
+$password = $config['password'];
+$subject = $config['subject'];
+
+/*
+echo "<pre>";
+echo ("host:" . $host . ",\n<br>" .
+    "username:" . $username . ",\n<br>" .
+    "fromName:" . $fromName . ",\n<br>" .
+    "password:" . $password . ",\n<br>" .
+    "destinationEmail:" . $clinicianEmail . ",\n<br>" .
+    "subject:" . $subject . ",\n<br>" .
+    //"emailBody:" . $emailBody.
+    ""
+);
+echo "</pre>";
+*/
+
+$destinationEmail = $clinicianEmail;
+
+$emailResult = mainMail(
+    $host,
+    $username,
+    $fromName,
+    $password,
+    $destinationEmail,
+    $subject,
+    $emailBody
+);
+if ($emailResult == "email sent") { ?>
+
+    <head>
+        <title>Redirection</title>
+        <script>
+            setTimeout(function () {
+                window.location.href = "index.html";
+            }, 2000); // 2,000 ms = 2 segundos
+        </script>
+    </head>
+
+    <body>
+        <img src="./Assets/Loading.gif" alt="loading">
+        <p>You will be redirected to the home page in 2 seconds...</p>
+    </body>
+    <?php
+} else {
+    die($emailResult); ?>
+
+    <head>
+        <title>Error</title>
+    </head>
+
+    <body>
+        <p>Your email could not be send...</p>
+    </body>
+    <?php
 
 
-require 'vendor/autoload.php';
 
-$mail = new PHPMailer(true);
-
-try {
-    // Configuración del servidor SMTP de Gmail
-    $mail->isSMTP();
-    $mail->Host = "smtp-mail.outlook.com";//'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    $mail->Username = 'Assessments@creativetherapyconsultants.ca';//'brunoaco@gmail.com';
-    $mail->Password = '@7@!Ass3ssm3n7s';//'qomu csty rxve vfsi'; // OJO: NO es tu contraseña normal
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = 587;
-
-    // Datos del email
-    $mail->setFrom('Assessments@creativetherapyconsultants.ca', 'Automatic Assessment Request Service');//origin
-    $mail->addAddress($clinicianEmail);//destination
-    $mail->Subject = 'Assessment Request';
-
-    //$html_rtrn = str_replace("{{assessmentsList}}", $links, $html_rtrn);
-
-    $mail->Body = $html_rtrn;
-    $mail->IsHTML(true);       // <=== call IsHTML() after $mail->Body has been set.
-
-    $mail->send();//this is where the magic happens
-    echo "Email sent.\n<br><br><br><button onclick=\"window.close()\">Close Window</button>";
-} catch (Exception $e) {
-    echo "Error al enviar correo: {$mail->ErrorInfo}";
 }
 ?>

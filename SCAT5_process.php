@@ -15,8 +15,6 @@ $screen = [];
 for ($i = 1; $i <= 22; $i++) {
     $screen[] = $_POST["screen" . $i];
 }
-//print_r($screen);
-//die("hasta aqui");
 $i = 0;
 
 $emailBody = "<!doctype html>";
@@ -156,39 +154,70 @@ $emailBody = $emailBody . "    </div>";
 $emailBody = $emailBody . "</body> ";
 $emailBody = $emailBody . "</html>";
 
-//echo "<pre>" . $emailBody . "</pre>";
-//die("hasta aqui");
+//echo $emailBody;
 
-//echo 'send email from google email' . '<br>';
+require './Functions/mainMail.php';
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+$config = require './inc/config.php';
 
-require 'vendor/autoload.php';
-//die("hasta aqui");
-$mail = new PHPMailer(true);
+$host = $config['host'];
+$username = $config['username'];
+$fromName = $config['fromName'];
+$password = $config['password'];
+$subject = $config['subject'];
 
-try {
-    // Configuración del servidor SMTP de Gmail
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    $mail->Username = 'brunoaco@gmail.com';
-    $mail->Password = 'qomu csty rxve vfsi'; // OJO: NO es tu contraseña normal
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = 587;
+/*
+echo "<pre>";
+echo ("host:" . $host . ",\n<br>" .
+    "username:" . $username . ",\n<br>" .
+    "fromName:" . $fromName . ",\n<br>" .
+    "password:" . $password . ",\n<br>" .
+    "destinationEmail:" . $clinicianEmail . ",\n<br>" .
+    "subject:" . $subject . ",\n<br>" .
+    //"emailBody:" . $emailBody.
+    ""
+);
+echo "</pre>";
+*/
 
-    // Datos del email
-    $mail->setFrom($clinicianEmail, 'Patient');//origin
-    $mail->addAddress($clinicianEmail);//destination//$patientEmail
-    $mail->Subject = 'Requested PHQ-9';
-    $mail->Body = $emailBody;
-    $mail->IsHTML(true);       // <=== call IsHTML() after $mail->Body has been set.
-    //die("hasta aqui");
-    $mail->send();//this is where the magic happens
-    echo "Email sent.\n<br><br><br><button onclick=\"window.close()\">Close Window</button>";
-    //die("hasta aqui!");
-} catch (Exception $e) {
-    echo "Error : {$mail->ErrorInfo}";
+$destinationEmail = $clinicianEmail;
+
+$emailResult = mainMail(
+    $host,
+    $username,
+    $fromName,
+    $password,
+    $destinationEmail,
+    $subject,
+    $emailBody
+);
+if ($emailResult == "email sent") { ?>
+
+    <head>
+        <title>Redirection</title>
+        <script>
+            setTimeout(function () {
+                window.location.href = "index.html";
+            }, 2000); // 2,000 ms = 2 segundos
+        </script>
+    </head>
+
+    <body>
+        <img src="./Assets/Loading.gif" alt="loading">
+        <p>You will be redirected to the home page in 2 seconds...</p>
+    </body>
+    <?php
+} else {
+    die($emailResult); ?>
+
+    <head>
+        <title>Error</title>
+    </head>
+
+    <body>
+        <p>Your email could not be send...</p>
+    </body>
+    <?php
+
 }
 ?>

@@ -79,7 +79,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen1_0" name="screen1"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen1_0">0</label>
                                     </div>
                                 </td>
@@ -140,7 +140,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen2_0" name="screen2"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen2_0">0</label>
                                     </div>
                                 </td>
@@ -201,7 +201,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen3_0" name="screen3"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen3_0">0</label>
                                     </div>
                                 </td>
@@ -262,7 +262,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen4_0" name="screen4"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen4_0">0</label>
                                     </div>
                                 </td>
@@ -323,7 +323,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen5_0" name="screen5"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen5_0">0</label>
                                     </div>
                                 </td>
@@ -384,7 +384,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen6_0" name="screen6"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen6_0">0</label>
                                     </div>
                                 </td>
@@ -445,7 +445,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen7_0" name="screen7"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen7_0">0</label>
                                     </div>
                                 </td>
@@ -506,7 +506,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen8_0" name="screen8"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen8_0">0</label>
                                     </div>
                                 </td>
@@ -567,7 +567,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen9_0" name="screen9"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen9_0">0</label>
                                     </div>
                                 </td>
@@ -628,7 +628,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen10_0" name="screen10"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen10_0">0</label>
                                     </div>
                                 </td>
@@ -689,7 +689,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen11_0" name="screen11"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen11_0">0</label>
                                     </div>
                                 </td>
@@ -750,7 +750,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen12_0" name="screen12"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen12_0">0</label>
                                     </div>
                                 </td>
@@ -811,7 +811,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen13_0" name="screen13"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen13_0">0</label>
                                     </div>
                                 </td>
@@ -872,7 +872,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen14_0" name="screen14"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen14_0">0</label>
                                     </div>
                                 </td>
@@ -933,7 +933,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen15_0" name="screen15"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen15_0">0</label>
                                     </div>
                                 </td>
@@ -994,7 +994,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen16_0" name="screen16"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen16_0">0</label>
                                     </div>
                                 </td>
@@ -1055,7 +1055,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen17_0" name="screen17"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen17_0">0</label>
                                     </div>
                                 </td>
@@ -1116,7 +1116,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen18_0" name="screen18"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen18_0">0</label>
                                     </div>
                                 </td>
@@ -1177,7 +1177,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen19_0" name="screen19"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen19_0">0</label>
                                     </div>
                                 </td>
@@ -1238,7 +1238,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen20_0" name="screen20"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen20_0">0</label>
                                     </div>
                                 </td>
@@ -1299,7 +1299,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen21_0" name="screen21"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen21_0">0</label>
                                     </div>
                                 </td>
@@ -1359,7 +1359,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                                 <td>
                                     <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input" type="radio" id="screen22_0" name="screen22"
-                                            value="0">
+                                            value="0" checked>
                                         <label class="form-check-label ms-1" for="screen22_0">0</label>
                                     </div>
                                 </td>
@@ -1413,7 +1413,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                     Do the symptoms get worse with <b>physical</b> activity? <!--Yes No-->
 
                     <div class="form-check d-flex">
-                        <input class="form-check-input" type="radio" id="physical_3" name="physical" value="1">
+                        <input class="form-check-input" type="radio" id="physical_3" name="physical" value="1" checked>
                         <label class="form-check-label ms-1" for="physical_3">Yes</label>
                     </div>
                     <div class="form-check d-flex">
@@ -1423,7 +1423,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                     <br>
                     Do the symptoms get worse with <b>mental</b> activity? Yes No <!--Yes No-->
                     <div class="form-check d-flex">
-                        <input class="form-check-input" type="radio" id="mental_3" name="mental" value="1">
+                        <input class="form-check-input" type="radio" id="mental_3" name="mental" value="1" checked>
                         <label class="form-check-label ms-1" for="mental_3">Yes</label>
                     </div>
                     <div class="form-check d-flex">
@@ -1438,7 +1438,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                         </label>
 
                         <input type="range" class="form-range" id="painScale" name="painScale" min="0" max="100"
-                            step="1" value="0" oninput="painValue.textContent = this.value">
+                            step="1" value="50" oninput="painValue.textContent = this.value">
 
                         <div class="d-flex justify-content-between mt-1">
                             <small class="text-muted">0 – NO PAIN</small>
@@ -1446,7 +1446,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                         </div>
 
                         <div class="mt-2 fw-semibold">
-                            Selected value: <span id="painValue">0</span>
+                            Selected value: <span id="painValue">50</span>
                         </div>
                     </div><br>
                     If not 100%, why?

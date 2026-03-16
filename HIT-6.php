@@ -120,7 +120,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
             <div class="question">
                 <p><strong>1. When you have headaches, how often is the pain severe?</strong></p>
                 <div class="options">
-                    <label><input type="radio" name="q1" value="0"> Never</label>
+                    <label><input type="radio" name="q1" value="0" checked> Never</label>
                     <label><input type="radio" name="q1" value="1"> Rarely</label>
                     <label><input type="radio" name="q1" value="2"> Sometimes</label>
                     <label><input type="radio" name="q1" value="3"> Very Often</label>
@@ -132,7 +132,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                 <p><strong>2. How often do headaches limit your ability to do usual daily activities including household
                         work, work, school, or social activities?</strong></p>
                 <div class="options">
-                    <label><input type="radio" name="q2" value="0"> Never</label>
+                    <label><input type="radio" name="q2" value="0" checked> Never</label>
                     <label><input type="radio" name="q2" value="1"> Rarely</label>
                     <label><input type="radio" name="q2" value="2"> Sometimes</label>
                     <label><input type="radio" name="q2" value="3"> Very Often</label>
@@ -143,7 +143,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
             <div class="question">
                 <p><strong>3. When you have a headache, how often do you wish you could lie down?</strong></p>
                 <div class="options">
-                    <label><input type="radio" name="q3" value="0"> Never</label>
+                    <label><input type="radio" name="q3" value="0" checked> Never</label>
                     <label><input type="radio" name="q3" value="1"> Rarely</label>
                     <label><input type="radio" name="q3" value="2"> Sometimes</label>
                     <label><input type="radio" name="q3" value="3"> Very Often</label>
@@ -155,7 +155,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                 <p><strong>4. In the past 4 weeks, how often have you felt too tired to do work or daily activities
                         because of your headaches?</strong></p>
                 <div class="options">
-                    <label><input type="radio" name="q4" value="0"> Never</label>
+                    <label><input type="radio" name="q4" value="0" checked> Never</label>
                     <label><input type="radio" name="q4" value="1"> Rarely</label>
                     <label><input type="radio" name="q4" value="2"> Sometimes</label>
                     <label><input type="radio" name="q4" value="3"> Very Often</label>
@@ -167,7 +167,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                 <p><strong>5. In the past 4 weeks, how often have you felt fed up or irritated because of your
                         headaches?</strong></p>
                 <div class="options">
-                    <label><input type="radio" name="q5" value="0"> Never</label>
+                    <label><input type="radio" name="q5" value="0" checked> Never</label>
                     <label><input type="radio" name="q5" value="1"> Rarely</label>
                     <label><input type="radio" name="q5" value="2"> Sometimes</label>
                     <label><input type="radio" name="q5" value="3"> Very Often</label>
@@ -179,7 +179,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                 <p><strong>6. In the past 4 weeks, how often did headaches limit your ability to concentrate on work or
                         daily activities?</strong></p>
                 <div class="options">
-                    <label><input type="radio" name="q6" value="0"> Never</label>
+                    <label><input type="radio" name="q6" value="0" checked> Never</label>
                     <label><input type="radio" name="q6" value="1"> Rarely</label>
                     <label><input type="radio" name="q6" value="2"> Sometimes</label>
                     <label><input type="radio" name="q6" value="3"> Very Often</label>

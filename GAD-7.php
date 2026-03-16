@@ -79,8 +79,9 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                     <!-- LINE 1 -->
                     <tr>
                         <td class="text-start">1. Feeling nervous, anxious, or on edge</td>
-                        <td><input type="radio" name="one" id="one_0" value="0"><label class="form-check-label ms-1"
-                                for="one_0">0</label></td>
+                        <td><input type="radio" name="one" id="one_0" value="0" checked>
+                            <label class="form-check-label ms-1" for="one_0">0</label>
+                        </td>
                         <td><input type="radio" name="one" id="one_1" value="1"><label class="form-check-label ms-1"
                                 for="one_1">1</label></td>
                         <td><input type="radio" name="one" id="one_2" value="2"><label class="form-check-label ms-1"
@@ -92,8 +93,9 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                     <!-- LINE 2 -->
                     <tr>
                         <td class="text-start">2. Not being able to stop or control worrying</td>
-                        <td><input type="radio" name="two" id="two_0" value="0"><label class="form-check-label ms-1"
-                                for="two_0">0</label></td>
+                        <td><input type="radio" name="two" id="two_0" value="0" checked>
+                            <label class="form-check-label ms-1" for="two_0">0</label>
+                        </td>
                         <td><input type="radio" name="two" id="two_1" value="1"><label class="form-check-label ms-1"
                                 for="two_1">1</label></td>
                         <td><input type="radio" name="two" id="two_2" value="2"><label class="form-check-label ms-1"
@@ -105,8 +107,9 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                     <!-- LINE 3 -->
                     <tr>
                         <td class="text-start">3. Worrying too much about different things</td>
-                        <td><input type="radio" name="three" id="three_0" value="0"><label class="form-check-label ms-1"
-                                for="three_0">0</label></td>
+                        <td><input type="radio" name="three" id="three_0" value="0" checked>
+                            <label class="form-check-label ms-1" for="three_0">0</label>
+                        </td>
                         <td><input type="radio" name="three" id="three_1" value="1"><label class="form-check-label ms-1"
                                 for="three_1">1</label></td>
                         <td><input type="radio" name="three" id="three_2" value="2"><label class="form-check-label ms-1"
@@ -118,8 +121,9 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                     <!-- LINE 4 -->
                     <tr>
                         <td class="text-start">4. Trouble relaxing</td>
-                        <td><input type="radio" name="four" id="four_0" value="0"><label class="form-check-label ms-1"
-                                for="four_0">0</label></td>
+                        <td><input type="radio" name="four" id="four_0" value="0" checked>
+                            <label class="form-check-label ms-1" for="four_0">0</label>
+                        </td>
                         <td><input type="radio" name="four" id="four_1" value="1"><label class="form-check-label ms-1"
                                 for="four_1">1</label></td>
                         <td><input type="radio" name="four" id="four_2" value="2"><label class="form-check-label ms-1"
@@ -131,8 +135,9 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                     <!-- LINE 5 -->
                     <tr>
                         <td class="text-start">5. Being so restless that it's hard to sit still</td>
-                        <td><input type="radio" name="five" id="five_0" value="0"><label class="form-check-label ms-1"
-                                for="five_0">0</label></td>
+                        <td><input type="radio" name="five" id="five_0" value="0" checked>
+                            <label class="form-check-label ms-1" for="five_0">0</label>
+                        </td>
                         <td><input type="radio" name="five" id="five_1" value="1"><label class="form-check-label ms-1"
                                 for="five_1">1</label></td>
                         <td><input type="radio" name="five" id="five_2" value="2"><label class="form-check-label ms-1"
@@ -144,8 +149,9 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                     <!-- LINE 6 -->
                     <tr>
                         <td class="text-start">6. Becoming easily annoyed or irritable</td>
-                        <td><input type="radio" name="six" id="six_0" value="0"><label class="form-check-label ms-1"
-                                for="six_0">0</label></td>
+                        <td><input type="radio" name="six" id="six_0" value="0" checked>
+                            <label class="form-check-label ms-1" for="six_0">0</label>
+                        </td>
                         <td><input type="radio" name="six" id="six_1" value="1"><label class="form-check-label ms-1"
                                 for="six_1">1</label></td>
                         <td><input type="radio" name="six" id="six_2" value="2"><label class="form-check-label ms-1"
@@ -158,7 +164,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                     <tr>
                         <td class="text-start">7. Feeling afraid as if something awful might
                             happen</td>
-                        <td><input type="radio" name="seven" id="seven_0" value="0">
+                        <td><input type="radio" name="seven" id="seven_0" value="0" checked>
                             <label class="form-check-label ms-1" for="seven_0">0</label>
                         </td>
                         <td><input type="radio" name="seven" id="seven_1" value="1">
@@ -189,7 +195,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
             </div>
             <div>
                 <div>
-                    <input type="checkbox" id="lvl_difficult0" name="lvl_difficult0" value="0">
+                    <input type="checkbox" id="lvl_difficult0" name="lvl_difficult0" value="0" checked>
                     <label for="lvl_difficult0">Not difficult at all</label>
                 </div>
                 <div>

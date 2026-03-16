@@ -75,13 +75,14 @@ try {
 
     <div class="container mt-4">
 
-        <form class="p-4 border rounded shadow-sm bg-white" method="post" action="process.php" name="assessments">
+        <form class="p-4 border rounded shadow-sm bg-white" method="post" action="process.php" name="assessments"
+            autocomplete="on">
 
             <!-- Clinician email -->
             <div class="mb-3">
                 <label class="form-label">Clinician Email</label>
                 <input type="email" class="form-control" name="clinicianEmail" placeholder="clinician@example.com"
-                    value="<?= htmlspecialchars($old['clinicianEmail'] ?? '') ?>" required>
+                    value="<?= htmlspecialchars($old['clinicianEmail'] ?? '') ?>" required autocomplete="email">
             </div>
 
             <!-- Patient email -->

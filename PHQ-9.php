@@ -73,35 +73,35 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                     <tbody>
                         <tr>
                             <td class="text-start">1. Little interest or pleasure in doing things</td>
-                            <td><input type="radio" name="fila1" value="0" required></td>
+                            <td><input type="radio" name="fila1" value="0" required checked></td>
                             <td><input type="radio" name="fila1" value="1"></td>
                             <td><input type="radio" name="fila1" value="2"></td>
                             <td><input type="radio" name="fila1" value="3"></td>
                         </tr>
                         <tr>
                             <td class="text-start">2. Feeling down, depressed, or hopeless</td>
-                            <td><input type="radio" name="fila2" value="0" required></td>
+                            <td><input type="radio" name="fila2" value="0" required checked></td>
                             <td><input type="radio" name="fila2" value="1"></td>
                             <td><input type="radio" name="fila2" value="2"></td>
                             <td><input type="radio" name="fila2" value="3"></td>
                         </tr>
                         <tr>
                             <td class="text-start">3. Trouble falling or staying asleep, or sleeping too much</td>
-                            <td><input type="radio" name="fila3" value="0" required></td>
+                            <td><input type="radio" name="fila3" value="0" required checked></td>
                             <td><input type="radio" name="fila3" value="1"></td>
                             <td><input type="radio" name="fila3" value="2"></td>
                             <td><input type="radio" name="fila3" value="3"></td>
                         </tr>
                         <tr>
                             <td class="text-start">4. Feeling tired or having little energy</td>
-                            <td><input type="radio" name="fila4" value="0" required></td>
+                            <td><input type="radio" name="fila4" value="0" required checked></td>
                             <td><input type="radio" name="fila4" value="1"></td>
                             <td><input type="radio" name="fila4" value="2"></td>
                             <td><input type="radio" name="fila4" value="3"></td>
                         </tr>
                         <tr>
                             <td class="text-start">5. Poor appetite or overeating</td>
-                            <td><input type="radio" name="fila5" value="0" required></td>
+                            <td><input type="radio" name="fila5" value="0" required checked></td>
                             <td><input type="radio" name="fila5" value="1"></td>
                             <td><input type="radio" name="fila5" value="2"></td>
                             <td><input type="radio" name="fila5" value="3"></td>
@@ -109,7 +109,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                         <tr>
                             <td class="text-start">6. Feeling bad about yourself - or that you are a failure or have let
                                 yourself or your family down</td>
-                            <td><input type="radio" name="fila6" value="0" required></td>
+                            <td><input type="radio" name="fila6" value="0" required checked></td>
                             <td><input type="radio" name="fila6" value="1"></td>
                             <td><input type="radio" name="fila6" value="2"></td>
                             <td><input type="radio" name="fila6" value="3"></td>
@@ -117,7 +117,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                         <tr>
                             <td class="text-start">7. Trouble concentrating on things, such as reading the newspaper or
                                 watching television</td>
-                            <td><input type="radio" name="fila7" value="0" required></td>
+                            <td><input type="radio" name="fila7" value="0" required checked></td>
                             <td><input type="radio" name="fila7" value="1"></td>
                             <td><input type="radio" name="fila7" value="2"></td>
                             <td><input type="radio" name="fila7" value="3"></td>
@@ -126,7 +126,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                             <td class="text-start">8. Moving or speaking so slowly that other people could have noticed?
                                 Or the opposite - being so fidgety or restless that you have been moving around a lot
                                 more than usual</td>
-                            <td><input type="radio" name="fila8" value="0" required></td>
+                            <td><input type="radio" name="fila8" value="0" required checked></td>
                             <td><input type="radio" name="fila8" value="1"></td>
                             <td><input type="radio" name="fila8" value="2"></td>
                             <td><input type="radio" name="fila8" value="3"></td>
@@ -134,7 +134,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
                         <tr>
                             <td class="text-start">9. Thoughts that you would be better off dead or of hurting yourself
                                 in some way</td>
-                            <td><input type="radio" name="fila9" value="0" required></td>
+                            <td><input type="radio" name="fila9" value="0" required checked></td>
                             <td><input type="radio" name="fila9" value="1"></td>
                             <td><input type="radio" name="fila9" value="2"></td>
                             <td><input type="radio" name="fila9" value="3"></td>
@@ -147,7 +147,7 @@ echo "assessmentslink has data " . $assessmentslink . "<br>\n";
 
                 <div class="d-flex gap-4">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="chk1" name="chk1">
+                        <input class="form-check-input" type="checkbox" id="chk1" name="chk1" checked>
                         <label class="form-check-label" for="chk1">Not difficult at all</label>
                     </div>
 

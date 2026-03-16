@@ -187,23 +187,19 @@ $password = $config['password'];
 $subject = $config['subject'];
 
 if (empty($links)) {
-    ?><button type="button" onclick="javascript:history.back()">Back</button>
+    ?>Please Select an Assessment. <button type="button" onclick="javascript:history.back()">Back</button>
     <?php
 } else {
-
-
-    if (
-        "email sent" == mainMail(
-            $host,
-            $username,
-            $fromName,
-            $password,
-            $patientEmail,
-            $subject,
-            $emailBody
-        )
-    ) { ?>
-
+    $emailResult = mainMail(
+        $host,
+        $username,
+        $fromName,
+        $password,
+        $patientEmail,
+        $subject,
+        $emailBody
+    );
+    if ($emailResult == "email sent") { ?>
 
         <head>
             <title>Redirection</title>
@@ -211,7 +207,6 @@ if (empty($links)) {
                 setTimeout(function () {
                     window.location.href = "index.html";
                 }, 2000); // 2,000 ms = 2 segundos
-
             </script>
         </head>
 
@@ -219,12 +214,9 @@ if (empty($links)) {
             <img src="./Assets/Loading.gif" alt="loading">
             <p>You will be redirected to the home page in 2 seconds...</p>
         </body>
-
-
-        <?
-
-    } else { ?>
-
+        <?php
+    } else {
+        die($emailResult); ?>
 
         <head>
             <title>Error</title>
@@ -233,17 +225,11 @@ if (empty($links)) {
         <body>
             <p>Your email could not be send...</p>
         </body>
-
-
-        <?
+        <?php
 
     }
 
 }
-
-//die("done checking");
-
-
 ?>
 
 </html>
