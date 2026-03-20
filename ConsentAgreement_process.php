@@ -6,9 +6,19 @@ echo "</pre>";
 */
 
 
-$clinicianEmail = $_POST["clinicianEmail"];
-$patientEmail = $_POST["patientEmail"];
-$assessmentslink = $_POST["assessmentslink"];
+
+$clinicianEmail = $_POST['clinicianEmail'] ?? '';
+if (empty($clinicianEmail)) {
+    die("clinicianEmail required");
+}
+$patientEmail = $_POST['patientEmail'] ?? '';
+if (empty($patientEmail)) {
+    die("patientEmail required");
+}
+$assessmentslink = $_POST['assessmentslink'] ?? '';
+if (empty($assessmentslink)) {
+    die("assessmentslink required");
+}
 
 //$oneSum = 0;
 //$twoSum = 0;

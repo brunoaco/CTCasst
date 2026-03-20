@@ -9,14 +9,32 @@ die("hasta aqui");
 
 
 
-$clinicianEmail = $_POST["clinicianEmail"];
-$patientEmail = $_POST["patientEmail"];
-$assessmentslink = $_POST["assessmentslink"];
+
+$clinicianEmail = $_POST['clinicianEmail'] ?? '';
+if (empty($clinicianEmail)) {
+    die("clinicianEmail required");
+}
+$patientEmail = $_POST['patientEmail'] ?? '';
+if (empty($patientEmail)) {
+    die("patientEmail required");
+}
+$assessmentslink = $_POST['assessmentslink'] ?? '';
+if (empty($assessmentslink)) {
+    die("assessmentslink required");
+}
 
 
 
-$overall = $_POST["overall"];
-$difficulty = $_POST["difficulty"];
+$overall = $_POST['overall'] ?? '';
+if (empty($overall)) {
+    die("overall required");
+}
+
+$difficulty = $_POST['difficulty'] ?? '';
+if (empty($difficulty)) {
+    die("difficulty required");
+}
+
 $pd = [];
 for ($i = 1; $i <= 15; $i++) {//keep in mind arrays start at 0!!!!
     $pd[] = $_POST["pd" . $i];

@@ -7,9 +7,18 @@ echo "</pre>";
 //die("hasta aqui");
 
 
-$clinicianEmail = $_POST["clinicianEmail"];
-$patientEmail = $_POST["patientEmail"];
-$assessmentslink = $_POST["assessmentslink"];
+$clinicianEmail = $_POST['clinicianEmail'] ?? '';
+if (empty($clinicianEmail)) {
+    die("clinicianEmail required");
+}
+$patientEmail = $_POST['patientEmail'] ?? '';
+if (empty($patientEmail)) {
+    die("patientEmail required");
+}
+$assessmentslink = $_POST['assessmentslink'] ?? '';
+if (empty($assessmentslink)) {
+    die("assessmentslink required");
+}
 
 $screen = [];
 for ($i = 1; $i <= 22; $i++) {
@@ -166,19 +175,6 @@ $fromName = $config['fromName'];
 $password = $config['password'];
 $subject = $config['subject'];
 
-/*
-echo "<pre>";
-echo ("host:" . $host . ",\n<br>" .
-    "username:" . $username . ",\n<br>" .
-    "fromName:" . $fromName . ",\n<br>" .
-    "password:" . $password . ",\n<br>" .
-    "destinationEmail:" . $clinicianEmail . ",\n<br>" .
-    "subject:" . $subject . ",\n<br>" .
-    //"emailBody:" . $emailBody.
-    ""
-);
-echo "</pre>";
-*/
 
 $destinationEmail = $clinicianEmail;
 
