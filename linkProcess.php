@@ -3,17 +3,7 @@ function clean($data)
 {
     return htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
 }
-/*
 
-echo "<h2>GET</h2>";
-echo "<pre>";
-foreach ($_GET as $key => $value) {
-    echo clean($key) . " => " . clean($value) . "\n";
-}
-echo "</pre>";*/
-
-
-//die("muere!");
 
 
 
@@ -22,7 +12,6 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $token = $_GET['token'] ?? '';
 
-//echo "token=" . $token;
 
 if (empty($token)) {
     http_response_code(400);
@@ -32,10 +21,10 @@ if (empty($token)) {
 $sql = "SELECT payload, expires_at, used FROM tokens WHERE token = ?";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$token]);
-//print $sql;
+
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-/*------------------------------------------------------------------
+
 if (!$row) {
     http_response_code(404);
     exit("Invalid token.");
@@ -43,18 +32,18 @@ if (!$row) {
 
 if ($row['used']) {
     http_response_code(403);
-    exit("Token already used.");
+    exit("Token already used. Contact your clinitian and ask for a new form email.");
 }
 
 if ($row['expires_at'] && time() > (int) $row['expires_at']) {
     http_response_code(410);
     exit("Token expired.");
-}*/
+}
 
 // marcar como usado (si quieres que sea uso único)
-/*$mark = $pdo->prepare("UPDATE tokens SET used = 1 WHERE token = ?");//--------------------------------------------------------------
+$mark = $pdo->prepare("UPDATE tokens SET used = 1 WHERE token = ?");//--------------------------------------------------------------
 $mark->execute([$token]);
-*/
+
 $payload = json_decode($row['payload'], true);
 
 
@@ -68,14 +57,12 @@ $patientEmail = $payload['patientEmail'] ?? '';
 $assessmentslink = $payload['assessmentslink'] ?? '';
 function formExtract($assessmentslink)
 {
-    //echo $assessmentslink . "\n";
-    //echo strpos($assessmentslink, "&formname") . "\n";
     $piece = substr($assessmentslink, strpos($assessmentslink, "&formname"));
-    //echo $piece . "\n";
+
     $pos = strpos($piece, "=");
-    //echo $pos . "\n";
+
     $formname = substr($piece, $pos + 1);
-    //echo $formname;
+
     return $formname;
 
 }
@@ -92,7 +79,7 @@ function linkWithTokenOnly($assessmentslink, $token, $isHref = true)
         }
 
         $newLink = str_replace("xyz", $token, $assessmentslink1);
-        //echo "new link ::" . $newLink . "\n";
+
         if ($isHref)
             return "<a href=\"" . $newLink . "\">  assessment link </a><br>\n";
         else
@@ -100,16 +87,8 @@ function linkWithTokenOnly($assessmentslink, $token, $isHref = true)
     }
 
 }
-//$assessmentslink = formExtract($assessmentslink);
-//echo "\nassessmentslink::" . $assessmentslink . "\n";
 
-/*
-echo "<pre>";
-foreach ($payload as $key => $value) {
-    echo clean($key) . " => " . clean($value) . "\n";
-}
-echo "</pre>";
-*/
+
 
 $formname = $payload["formname"];
 
@@ -124,9 +103,6 @@ switch ($formname) {
     case "SCAT5.php";
     case "PGAP.php":
 
-
-        //code block
-        //echo "case::PHQ-9.php";
         ?>
         <html>
 
@@ -140,7 +116,7 @@ switch ($formname) {
                 <input type="hidden" class="form-control" id="assessmentslink" name="assessmentslink"
                     value="<?= linkWithTokenOnly($assessmentslink, $token, false) ?>" required><br>
                 <input type="hidden" class="form-control" id="formname" name="formname" value="<?= $formname ?>" required><br>
-                <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+
             </form>
         </body>
         <script>
@@ -154,12 +130,7 @@ switch ($formname) {
         <?php
         exit();
         break;
-    //case label2:
-    //code block;
-    //break;
-    //case label3:
-    //code block
-    //break;
+
     default:
         //code block
         echo $formname . " -> nope!";
