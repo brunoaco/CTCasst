@@ -21,23 +21,19 @@ if (empty($assessmentslink)) {
 }
 function validPost($name)
 {
-
-    if (isset($_POST[$name]) && ctype_digit($_POST[$name])) {
-        //echo $name . " es un entero positivo: " . $_POST[$name] . "<br>\n";
-        return $_POST[$name];
-    } else {
-        if (isset($_POST[$name])) {
-            //echo $name . " no es un entero positivo: " . $_POST[$name] . "<br>\n";
-            return $_POST[$name];
-
-        } else {
-            //echo $name . " no existe.<br>\n";
-            return null;
-
-        }
+    if (!isset($_POST[$name])) {
+        return null;
     }
 
+    $value = trim($_POST[$name]);
 
+    // Si es entero positivo
+    if (ctype_digit($value)) {
+        return (int) $value;
+    }
+
+    // Si es string, sanitizar
+    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
 
 
