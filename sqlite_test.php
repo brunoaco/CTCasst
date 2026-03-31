@@ -18,7 +18,9 @@ function rootOrFolder()
     }
 }
 //echo (rootOrFolder());
-$myForm = $_SERVER['SERVER_NAME'] . rootOrFolder() . "/linkProcess.php?token=";
+//$myForm = $_SERVER['SERVER_NAME'] . rootOrFolder() . "/linkProcess.php?token=";
+$myForm = $_SERVER['SERVER_ADDR'] . rootOrFolder() . "/linkProcess.php?token=";
+
 //die("hasta aqui:" . $myForm);
 
 // create table with new 'form' column
