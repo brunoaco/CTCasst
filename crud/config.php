@@ -1,4 +1,7 @@
 <?php
+// timezone
+date_default_timezone_set('America/Vancouver');
+
 // AUTH
 $USER = "//user//";
 $PASS = "//pass//";
@@ -22,23 +25,38 @@ try {
     die("DB Error: " . $e->getMessage());
 }
 
-// helper
+// escape
+function e($str)
+{
+    return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
+}
 
+// timestamp formatter
+function formatDate($ts)
+{
+    if (!$ts)
+        return '';
+
+    if (is_numeric($ts)) {
+        return date('Y-m-d H:i:s', (int) $ts);
+    }
+
+    return date('Y-m-d H:i:s', strtotime($ts));
+}
+
+// payload formatter
 function formatPayload($payload)
 {
-
-    // intentar decodificar JSON
     $data = json_decode($payload, true);
 
     if (is_array($data)) {
         $out = '';
         foreach ($data as $k => $v) {
-            $out .= '"' . e($k) . '" : "' . e($v) . "\",<br>";
+            $out .= "<b>" . e($k) . "</b>: " . e($v) . "<br>";
         }
         return $out;
     }
 
-    // fallback: separar por comas
     $parts = explode(',', $payload);
     $out = '';
     foreach ($parts as $p) {
@@ -46,15 +64,4 @@ function formatPayload($payload)
     }
 
     return $out;
-}
-function e($str)
-{
-    return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
-}
-
-function formatDate($ts)
-{
-    if (!$ts)
-        return '';
-    return date('Y-m-d H:i:s', strtotime($ts));
 }

@@ -12,37 +12,40 @@ if ($action === 'list') {
     $stmt = $db->query("SELECT * FROM tokens LIMIT $limit OFFSET $offset");
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    echo "<h2>Tokens</h2>";
+    echo "<h4 class='mb-3'>Tokens</h4>";
 
-    echo "<table border='1' cellpadding='5'>";
-    echo "<tr>
-            <th>Token</th>
-            <th>Payload</th>
-            <th>Created</th>
-            <th>Expires</th>
-            <th>Used</th>
-            <th>Actions</th>
-          </tr>";
+    echo "<div class='table-responsive'>";
+    echo "<table class='table table-bordered table-hover align-middle'>";
+    echo "<thead class='table-dark'>
+            <tr>
+                <th>Token</th>
+                <th>Payload</th>
+                <th>Created</th>
+                <th>Expires</th>
+                <th>Used</th>
+                <th>Actions</th>
+            </tr>
+          </thead><tbody>";
 
     foreach ($rows as $r) {
         echo "<tr>";
-        echo "<td>" . e($r['token']) . "</td>";
+        echo "<td><small>" . e($r['token']) . "</small></td>";
         echo "<td>" . formatPayload($r['payload']) . "</td>";
-        echo "<td>" . e($r['created_at']) . "<br>" . formatDate($r['created_at']) . "</td>";
-        echo "<td>" . e($r['expires_at']) . "<br>" . formatDate($r['expires_at']) . "</td>";
-        echo "<td>" . e($r['used']) . "</td>";
+        echo "<td><small>" . e($r['created_at']) . "<br><b>" . formatDate($r['created_at']) . "</b></small></td>";
+        echo "<td><small>" . e($r['expires_at']) . "<br><b>" . formatDate($r['expires_at']) . "</b></small></td>";
+        echo "<td>" . ($r['used'] ? "<span class='badge bg-success'>Yes</span>" : "<span class='badge bg-warning'>No</span>") . "</td>";
         echo "<td>
-                <a href='?table=tokens&action=edit&id=" . e($r['token']) . "'>Edit</a> |
-                <a href='?table=tokens&action=delete&id=" . e($r['token']) . "' onclick=\"return confirm('Delete?')\">Delete</a>
+                <a class='btn btn-sm btn-primary' href='?table=tokens&action=edit&id=" . e($r['token']) . "'>Edit</a>
+                <a class='btn btn-sm btn-danger' href='?table=tokens&action=delete&id=" . e($r['token']) . "' onclick=\"return confirm('Delete?')\">Delete</a>
               </td>";
         echo "</tr>";
     }
 
-    echo "</table>";
+    echo "</tbody></table></div>";
 
     // pagination
     for ($i = 1; $i <= ceil($total / $limit); $i++) {
-        echo "<a href='?table=tokens&page=$i'>$i</a> ";
+        echo "<a class='btn btn-sm btn-outline-primary me-1' href='?table=tokens&page=$i'>$i</a>";
     }
 }
 
@@ -63,14 +66,27 @@ if ($action === 'edit') {
     $stmt->execute([$id]);
     $r = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    echo "<h3>Edit Token</h3>";
-    echo "<form method='post'>";
+    echo "<h4>Edit Token</h4>";
+    echo "<form method='post' class='mt-3'>";
 
-    echo "token: " . e($r['token']) . "<br>";
-    echo "payload: <input name='payload' value='" . e($r['payload']) . "'><br>";
-    echo "used: <input name='used' value='" . e($r['used']) . "'><br>";
+    echo "<div class='mb-3'>
+            <label class='form-label'>Token</label>
+            <input class='form-control' value='" . e($r['token']) . "' disabled>
+          </div>";
 
-    echo "<button type='submit'>Save</button>";
+    echo "<div class='mb-3'>
+            <label class='form-label'>Payload</label>
+            <textarea name='payload' class='form-control'>" . e($r['payload']) . "</textarea>
+          </div>";
+
+    echo "<div class='mb-3'>
+            <label class='form-label'>Used</label>
+            <input name='used' class='form-control' value='" . e($r['used']) . "'>
+          </div>";
+
+    echo "<button class='btn btn-success'>Save</button>";
+    echo " <a class='btn btn-secondary' href='?table=tokens'>Back</a>";
+
     echo "</form>";
 }
 

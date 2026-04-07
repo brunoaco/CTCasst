@@ -12,37 +12,40 @@ if ($action === 'list') {
     $stmt = $db->query("SELECT * FROM mytable LIMIT $limit OFFSET $offset");
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    echo "<h2>MyTable</h2>";
+    echo "<h4 class='mb-3'>MyTable</h4>";
 
-    echo "<table border='1' cellpadding='5'>";
-    echo "<tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Form</th>
-            <th>Valid</th>
-            <th>FormName</th>
-            <th>Actions</th>
-          </tr>";
+    echo "<div class='table-responsive'>";
+    echo "<table class='table table-striped table-hover'>";
+    echo "<thead class='table-dark'>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Form</th>
+                <th>Valid</th>
+                <th>FormName</th>
+                <th>Actions</th>
+            </tr>
+          </thead><tbody>";
 
     foreach ($rows as $r) {
         echo "<tr>";
         echo "<td>" . e($r['id']) . "</td>";
         echo "<td>" . e($r['name']) . "</td>";
         echo "<td>" . e($r['form']) . "</td>";
-        echo "<td>" . e($r['valid']) . "</td>";
+        echo "<td>" . ($r['valid'] ? "<span class='badge bg-success'>Valid</span>" : "<span class='badge bg-danger'>Invalid</span>") . "</td>";
         echo "<td>" . e($r['formname']) . "</td>";
         echo "<td>
-                <a href='?table=mytable&action=edit&id=" . e($r['id']) . "'>Edit</a> |
-                <a href='?table=mytable&action=delete&id=" . e($r['id']) . "' onclick=\"return confirm('Delete?')\">Delete</a>
+                <a class='btn btn-sm btn-primary' href='?table=mytable&action=edit&id=" . e($r['id']) . "'>Edit</a>
+                <a class='btn btn-sm btn-danger' href='?table=mytable&action=delete&id=" . e($r['id']) . "' onclick=\"return confirm('Delete?')\">Delete</a>
               </td>";
         echo "</tr>";
     }
 
-    echo "</table>";
+    echo "</tbody></table></div>";
 
     // pagination
     for ($i = 1; $i <= ceil($total / $limit); $i++) {
-        echo "<a href='?table=mytable&page=$i'>$i</a> ";
+        echo "<a class='btn btn-sm btn-outline-primary me-1' href='?table=mytable&page=$i'>$i</a>";
     }
 }
 
@@ -69,16 +72,37 @@ if ($action === 'edit') {
     $stmt->execute([$id]);
     $r = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    echo "<h3>Edit Record</h3>";
-    echo "<form method='post'>";
+    echo "<h4>Edit Record</h4>";
+    echo "<form method='post' class='mt-3'>";
 
-    echo "id: " . e($r['id']) . "<br>";
-    echo "name: <input name='name' value='" . e($r['name']) . "'><br>";
-    echo "form: <input name='form' value='" . e($r['form']) . "'><br>";
-    echo "valid: <input name='valid' value='" . e($r['valid']) . "'><br>";
-    echo "formname: <input name='formname' value='" . e($r['formname']) . "'><br>";
+    echo "<div class='mb-3'>
+            <label class='form-label'>ID</label>
+            <input class='form-control' value='" . e($r['id']) . "' disabled>
+          </div>";
 
-    echo "<button type='submit'>Save</button>";
+    echo "<div class='mb-3'>
+            <label class='form-label'>Name</label>
+            <input name='name' class='form-control' value='" . e($r['name']) . "'>
+          </div>";
+
+    echo "<div class='mb-3'>
+            <label class='form-label'>Form</label>
+            <input name='form' class='form-control' value='" . e($r['form']) . "'>
+          </div>";
+
+    echo "<div class='mb-3'>
+            <label class='form-label'>Valid</label>
+            <input name='valid' class='form-control' value='" . e($r['valid']) . "'>
+          </div>";
+
+    echo "<div class='mb-3'>
+            <label class='form-label'>FormName</label>
+            <input name='formname' class='form-control' value='" . e($r['formname']) . "'>
+          </div>";
+
+    echo "<button class='btn btn-success'>Save</button>";
+    echo " <a class='btn btn-secondary' href='?table=mytable'>Back</a>";
+
     echo "</form>";
 }
 
