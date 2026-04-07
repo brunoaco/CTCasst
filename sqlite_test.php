@@ -19,7 +19,12 @@ function rootOrFolder()
 }
 //echo (rootOrFolder());
 //$myForm = $_SERVER['SERVER_NAME'] . rootOrFolder() . "/linkProcess.php?token=";
-$myForm = $_SERVER['SERVER_ADDR'] . rootOrFolder() . "/linkProcess.php?token=";
+//$myForm = $_SERVER['SERVER_ADDR'] . rootOrFolder() . "/linkProcess.php?token=";
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
+$host = $_SERVER['HTTP_HOST'];
+//$uri = $_SERVER['REQUEST_URI'];
+$myForm = $protocol . "://" . $host . rootOrFolder() . "/linkProcess.php?token=";
+
 
 //die("hasta aqui:" . $myForm);
 
