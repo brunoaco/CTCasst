@@ -111,11 +111,10 @@ $html_rtrn = " <!DOCTYPE html> " .
     "    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\">" .
     "    <div class=\"container mt-4\">" .
     "        <form method=\"post\" action=\"GAD-7_process.php\" id=\"myForm\"> " .
-    "           <input type=\"hidden\" class=\"form-control\" id=\"clinicianEmail\" name=\"clinicianEmail\" value=\"brunoaco@gmail.com\" required=\"\"><br> " .
+    "           <input type=\"hidden\" class=\"form-control\" id=\"clinicianEmail\" name=\"clinicianEmail\" value=\"$clinicianEmail\" required=\"\"><br> " .
     "            <label for=\"patientEmail\" class=\"form-label\">Patient Email: " . $patientEmail . "</label>" .
-    "           <input type=\"hidden\" class=\"form-control\" id=\"patientEmail\" name=\"patientEmail\" value=\"bruno.acosta.baraona@gmail.com\" required=\"\"><br>" .
-    "           <input type=\"hidden\" class=\"form-control\" id=\"assessmentslink\" name=\"assessmentslink\"" .
-    "            value=\"$assessmentslink\" required=\"\"><br>" .
+    "           <input type=\"hidden\" class=\"form-control\" id=\"patientEmail\" name=\"patientEmail\" value=\"$patientEmail\" required=\"\"><br>" .
+    "           <input type=\"hidden\" class=\"form-control\" id=\"assessmentslink\" name=\"assessmentslink\" value=\"$assessmentslink\" required=\"\"><br>" .
     "            <h3>General Anxiety Disorder (GAD-7)</h3><br>" .
     "            <table class=\"table table-bordered text-center align-middle\">" .
     "                <thead class=\"table-light\">" .
